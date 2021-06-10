@@ -3,12 +3,14 @@ import React from "react";
 import CustomerHome from "./Components/CustomerHome/CustomerHome";
 import CardsCarousel from "./Components/CustomerHome/CardsCarousel";
 import { StyleSheet, Text, View } from "react-native";
+import AddEditListingsPage from "./Components/AddEditListingsPage/AddEditListingsPage";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <CustomerHome />
-      <CardsCarousel />
+      {/* <CustomerHome />
+      <CardsCarousel /> */}
+      <AddEditListingsPage />
       <StatusBar style="auto" />
     </View>
   );
