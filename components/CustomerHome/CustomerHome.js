@@ -12,6 +12,11 @@ import {
 } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
+// console.log(process.env);
+
+//NEED TO FIX:
+//Search Bar moves up once keyboard opens
+
 export default function CustomerHome() {
   // const DismissKeyboard = ({ child }) => (
   //   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -49,7 +54,7 @@ export default function CustomerHome() {
           });
         }}
         query={{
-          key: "AIzaSyBRauRPIGBA8m5YWcMJcEP28XZ9AU10El4",
+          key: process.env.API_KEY, //Add API Key Here
           language: "en",
           components: "country:can",
           types: "establishment",
