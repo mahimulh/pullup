@@ -4,6 +4,7 @@ import CustomerHome from "./Components/CustomerHome/CustomerHome";
 import CardsCarousel from "./Components/CustomerHome/CardsCarousel";
 import { StyleSheet, Text, View } from "react-native";
 import AddEditListingsPage from "./Components/AddEditListingsPage/AddEditListingsPage";
+import PhotosModal from "./Components/AddEditListingsPage/PhotosModal";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       {/* <CustomerHome />
       <CardsCarousel /> */}
       <AddEditListingsPage />
+      {/* <PhotosModal /> */}
       <StatusBar style="auto" />
     </View>
   );

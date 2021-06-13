@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  CheckBox,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 
 export default function AddEditListingsPage() {
   const [title, setTitle] = useState();
+  const [isSelected, setSelection] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.stateSection}>
         <Text style={styles.states}>Title:</Text>
         <TextInput
@@ -15,7 +24,7 @@ export default function AddEditListingsPage() {
         />
       </View>
       <View style={styles.stateSection}>
-        <Text style={styles.states}>Adress:</Text>
+        <Text style={styles.states}>Address:</Text>
         <TextInput style={styles.input} placeholder="e.g. 2 King Stree West" />
       </View>
       <View style={styles.stateSection}>
@@ -26,22 +35,22 @@ export default function AddEditListingsPage() {
           keyboardType="numeric"
         />
       </View>
+      <TouchableOpacity style={styles.Button}>
+        <Text style={styles.Text}>Add Photos</Text>
+      </TouchableOpacity>
       <View style={styles.stateSection}>
-        <Text style={styles.states}>Add Photos:</Text>
-        <TextInput style={styles.input} placeholder="Upload" />
+        <View style={{ flexDirection: "column" }}>
+          <Text style={styles.states}>Description:</Text>
+          <TextInput
+            multiline
+            style={styles.description}
+            placeholder="Add a description"
+          />
+        </View>
       </View>
-      <View style={styles.stateSection}>
-        <Text style={styles.states}>Description:</Text>
-        <TextInput
-          multiline
-          style={styles.input}
-          placeholder="Add a description"
-        />
-      </View>
-      <View style={styles.stateSection}>
-        <Text style={styles.states}>Dates Available:</Text>
-        <TextInput style={styles.input} placeholder="Opens Calender" />
-      </View>
+      <TouchableOpacity style={styles.Button}>
+        <Text style={styles.Text}>Dates Available</Text>
+      </TouchableOpacity>
       <View style={styles.stateSection}>
         <Text style={styles.states}>Price/Hour:</Text>
         <TextInput
@@ -50,20 +59,35 @@ export default function AddEditListingsPage() {
           keyboardType="numeric"
         />
       </View>
-    </View>
+      <View style={styles.checkboxContainer}>
+        <CheckBox
+          value={isSelected}
+          onValueChange={setSelection}
+          style={styles.checkbox}
+        ></CheckBox>
+        <Text style={styles.label}>
+          Agree to Terms {isSelected ? "👍" : "👎"}
+        </Text>
+      </View>
+      <TouchableOpacity style={styles.submitButton}>
+        <Text style={styles.submit}>Submit</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    width: "90%",
     flex: 1,
     backgroundColor: "#fff",
     // alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
+    marginTop: 50,
   },
   stateSection: {
     flexDirection: "row",
-    marginBottom: 14,
+    marginBottom: 20,
   },
   states: {
     fontSize: 25,
@@ -76,6 +100,60 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     // padding: 8,
     // margin: 10,
-    width: 200,
+    width: "100%",
+  },
+  description: {
+    marginTop: 10,
+    paddingHorizontal: 10,
+    padding: 5,
+    borderWidth: 1,
+    borderColor: "#777",
+    width: 370,
+    fontSize: 15,
+  },
+  Button: {
+    justifyContent: "center",
+    // alignSelf: "center",
+    borderWidth: 2,
+    borderColor: "#1F97A8",
+    borderRadius: 30,
+    width: "100%",
+    height: 50,
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  Text: {
+    color: "#1F97A8",
+    fontSize: 25,
+    // margin: 5,
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  checkbox: {
+    // width: 50,
+    alignSelf: "center",
+  },
+  label: {
+    fontSize: 15,
+    margin: 5,
+  },
+  submitButton: {
+    justifyContent: "center",
+    alignSelf: "center",
+    backgroundColor: "#1F97A8",
+    // borderWidth: 2,
+    // borderColor: "#1F97A8",
+    borderRadius: 30,
+    height: 50,
+    width: "100%",
+  },
+  submit: {
+    fontSize: 25,
+    alignSelf: "center",
+    color: "#FFFFFF",
   },
 });
