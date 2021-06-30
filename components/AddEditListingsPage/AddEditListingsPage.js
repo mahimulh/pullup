@@ -10,6 +10,8 @@ import {
   Button,
 } from "react-native";
 
+// TODO: Add Date Time Picker, find a way to open Camera and Gallery
+
 import Animated from "react-native-reanimated";
 import BottomSheet from "reanimated-bottom-sheet";
 
