@@ -5,6 +5,8 @@ import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import PersonalInfo from "./features/profile/personalInfo/personalInfo"
+import EditProfile from './features/profile/personalInfo/editPersonalInfo';
 
 //routing attempt --need to delete
 function HomeScreen({ navigation }) {
@@ -12,8 +14,8 @@ function HomeScreen({ navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
       <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        title="Go to Personal Info"
+        onPress={() => navigation.navigate('PersonalInfo')}
       />
     </View>
   );
@@ -40,6 +42,8 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Overview' }}/>
         <Stack.Screen name="Details" component={DetailsScreen}  options={{ title: 'Overview' }}/>
+        <Stack.Screen name="PersonalInfo" component={PersonalInfo}  options={{ title: 'Personal Info' }}/>
+        <Stack.Screen name="EditPersonalInfo" component={EditProfile}  options={{ title: 'Edit Personal Info' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
