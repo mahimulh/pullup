@@ -22,7 +22,7 @@ export const ListingImage = styled.Image`
     border-radius: 11;
 `
 
-export const listingLocation = styled.Text`
+export const ListingLocation = styled.Text`
     padding-left: 20;
     width: 150;
     font-size: 15;
@@ -30,7 +30,7 @@ export const listingLocation = styled.Text`
     text-align: left;     
 `
 
-export const listingPrice = styled.Text`
+export const ListingPrice = styled.Text`
     padding-left: 0;
     width: 80;
     overflow: hidden;
