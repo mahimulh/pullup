@@ -21,19 +21,6 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function DetailsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.navigate('Details')}
-      />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
-
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -41,7 +28,6 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Overview' }}/>
-        <Stack.Screen name="Details" component={DetailsScreen}  options={{ title: 'Overview' }}/>
         <Stack.Screen name="PersonalInfo" component={PersonalInfo}  options={{ title: 'Personal Info' }}/>
         <Stack.Screen name="EditPersonalInfo" component={EditProfile}  options={{ title: 'Edit Personal Info' }}/>
       </Stack.Navigator>
